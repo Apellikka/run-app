@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Harjoitus678</string>
+    <string name="hint_word">Run...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Run not saved because it is empty.</string>
+    <string-array name="exercise_array">
+        <item>Walk</item>
+        <item>Run/walk</item>
+        <item>Run</item>
+    </string-array>
+
+</resources>
