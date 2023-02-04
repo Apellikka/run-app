@@ -1,6 +1,5 @@
-package com.example.harjoitus678;
+package com.example.run_app;
 
-import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -31,14 +30,14 @@ public class Run {
 
 
     public Run(@NonNull String practice, @NonNull double distance, @NonNull int duration) {
-        Log.d("Run", "New object" + practice + " " + distance + " " + duration);
+        Log.d("Run", "New object " + practice + " " + distance + " " + duration);
         this.mPractice = practice;
         this.mDistance = distance;
         this.mDuration = duration;
 
         // Get local date and time and format it for use as the primarykey.
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         mDate = now.format(format);
     }
 

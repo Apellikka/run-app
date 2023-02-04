@@ -1,4 +1,4 @@
-package com.example.harjoitus678;
+package com.example.run_app;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +43,7 @@ public class RunListAdapter extends ListAdapter<Run, RunViewHolder> {
 
         @Override
         public boolean areItemsTheSame(@NonNull Run oldItem, @NonNull Run newItem) {
-            return oldItem == newItem;
+            return oldItem.equals(newItem);
         }
 
         @Override

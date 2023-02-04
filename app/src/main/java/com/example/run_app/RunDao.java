@@ -1,4 +1,4 @@
-package com.example.harjoitus678;
+package com.example.run_app;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -18,8 +18,11 @@ public interface RunDao {
     @Query("DELETE FROM run_table")
     void deleteAll();
 
-    @Query("SELECT * FROM run_table ORDER BY date")
-    LiveData<List<Run>> getRunsByDate();
+    @Query("SELECT * FROM run_table ORDER BY " +
+            "CASE WHEN:choice=1 THEN date END ASC," +
+            "CASE WHEN:choice=2 THEN distance END ASC," +
+            "CASE WHEN:choice=3 THEN duration END ASC")
+    LiveData<List<Run>> getRuns(int choice);
 
     @Query("SELECT * FROM run_table ORDER BY distance ASC")
     LiveData<List<Run>> getRunsByDistance();

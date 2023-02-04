@@ -1,9 +1,8 @@
-package com.example.harjoitus678;
+package com.example.run_app;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 
@@ -15,11 +14,11 @@ public class RunRepository {
     RunRepository(Application application) {
         RunRoomDatabase db = RunRoomDatabase.getDatabase(application);
         mRunDao = db.runDao();
-        mAllRuns = mRunDao.getRunsByDate();
     }
 
-    LiveData<List<Run>> getAllRuns() {
-        return mRunDao.getRunsByDate();
+    LiveData<List<Run>> getAllRuns(int choice) {
+        mAllRuns = mRunDao.getRuns(choice);
+        return mAllRuns;
     }
 
 

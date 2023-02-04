@@ -1,10 +1,6 @@
-package com.example.harjoitus678;
+package com.example.run_app;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,15 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.Comparator;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button sortByDateButton;
     private Button sortByDistanceButton;
     private Button sortByDurationButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,23 +54,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
         sortByDateButton = findViewById(R.id.sortByDate);
-        sortByDateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
+        sortByDateButton.setOnClickListener(view -> {
+            mRunViewModel.setChoice(1);
+            mRunViewModel.getAllRuns().observe(this, runs -> {
+                adapter.submitList(runs);
+            });
         });
 
         sortByDistanceButton = findViewById(R.id.sortByDistance);
         sortByDistanceButton.setOnClickListener(view -> {
-
+            mRunViewModel.setChoice(2);
+            mRunViewModel.getAllRuns().observe(this, runs -> {
+                adapter.submitList(runs);
+            });
         });
 
         sortByDurationButton = findViewById(R.id.sortByDuration);
-        sortByDurationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
+        sortByDurationButton.setOnClickListener(view -> {
+            mRunViewModel.setChoice(3);
+            mRunViewModel.getAllRuns().observe(this, runs -> {
+                adapter.submitList(runs);
+            });
         });
 
         FloatingActionButton fab = findViewById(R.id.fab);

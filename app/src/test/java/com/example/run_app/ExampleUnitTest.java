@@ -1,4 +1,4 @@
-package com.example.harjoitus678;
+package com.example.run_app;
 
 import org.junit.Test;
 
