@@ -1,1 +1,1 @@
-Run training application that uses room database and MVVM architecture.
+Run training application for Android that uses room database and MVVM architecture.
