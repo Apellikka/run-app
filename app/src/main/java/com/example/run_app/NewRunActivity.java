@@ -12,8 +12,6 @@ import android.widget.Spinner;
 
 public class NewRunActivity extends AppCompatActivity {
 
-    public static final String EXTRA_REPLY = "com.example.android.runlistsql.REPLY";
-
     private Spinner exerciseSpinner;
     private EditText distance;
     private EditText duration;
