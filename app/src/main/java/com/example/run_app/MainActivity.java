@@ -16,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
     private RunViewModel mRunViewModel;
-    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    public static final int NEW_RUN_ACTIVITY_REQUEST_CODE = 1;
     private Button deleteButton;
     private Button sortByDateButton;
     private Button sortByDistanceButton;
@@ -80,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener( view -> {
             Intent intent = new Intent(MainActivity.this, NewRunActivity.class);
-            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+            startActivityForResult(intent, NEW_RUN_ACTIVITY_REQUEST_CODE);
         });
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == NEW_RUN_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             String exercise = extras.getString("EXERCISE");
             String dst = extras.getString("DISTANCE");
